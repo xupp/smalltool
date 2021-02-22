@@ -1,0 +1,43 @@
+<!-- <button wx:if="{{!authorized}}" open-type="getUserInfo" bind:getuserinfo="onGetUserInfo">获取用户信息</button> -->
+<view class="container">
+  <image class="background" src="../../assets/images/bg.png"></image>
+  <view class="content">
+    <view class="logo">
+      <image src="{{authorized && userInfo.avatarUrl ? userInfo.avatarUrl : '../../assets/images/logo.png'}}"></image>
+    </view>
+    <text wx:if="{{authorized && userInfo.nickName}}">{{userInfo.nickName}}</text>
+    <text wx:else>有用小帮手</text>
+  </view>
+</view>
+<van-cell-group>
+  <van-cell wx:if="{{!authorized}}">
+    <button slot="title" open-type="getUserInfo" bind:getuserinfo="onGetUserInfo" hover-class="none">
+      <van-icon name="user-o" color="pink" />
+      授权登录
+    </button>
+  </van-cell>
+  <van-cell>
+    <button slot="title" bindtap="onSupport">
+      <van-icon slot="icon" name="good-job-o" color="red" />
+      赞赏支持
+    </button>
+  </van-cell>
+  <van-cell>
+    <button slot="title" open-type="contact" hover-class="none">
+      <van-icon name="phone-o" color="orange" />
+      联系作者
+    </button>
+  </van-cell>
+  <van-cell >
+    <button slot="title" open-type="feedback" hover-class="none">
+      <van-icon name="edit" color="blue" />
+      意见反馈
+    </button>
+  </van-cell>
+  <van-cell >
+    <button slot="title" open-type="share" hover-class="none">
+      <van-icon name="share-o" color="cyan" />
+      分享给朋友
+    </button>
+  </van-cell>
+</van-cell-group>

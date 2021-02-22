@@ -1,0 +1,54 @@
+page{
+  background-color: black;
+}
+.screen{
+  width: 100vw;
+  height: 240rpx;
+  word-break: break-all;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 100rpx;
+  color: white;
+}
+.container{
+  width: 100vw;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 15px;
+  justify-items: center;
+}
+.container view{
+  color: white;
+  font-size: 20px;
+  width: 140rpx;
+  height: 140rpx;
+  line-height: 140rpx;
+  text-align: center;
+  border-radius: 50%;
+  background: rgb(107, 105, 105);
+}
+.container view:nth-child(-n+3){
+  color: black;
+  background: rgb(187, 187, 187);
+}
+.container view:nth-child(4n), .container view:last-child{
+  background: rgb(240, 145, 20);
+}
+.container view.zero{
+  width: 100%;
+  grid-column: span 2;
+  border-radius: 50px;
+}
+.van-cell{
+  background-color: #000 !important;
+}
+.input-class{
+  color: #fff !important;
+  background-color: #000 !important;
+  font-size: 80rpx;
+}

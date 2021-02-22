@@ -1,0 +1,112 @@
+<c-page-scroll 
+  swiperData="{{swiperData}}" 
+  pageConfig="{{pageConfig}}"
+  bind:change="onPageChange"
+  bind:chooseImg="onChooseImg"
+></c-page-scroll>
+<view class="music-icon {{!paused ? 'play' : ''}}" wx:if="{{pageConfig.musicUrl && pageConfig.playMusic}}" bindtap="bindPauseMusic">
+  <image src="../../../assets/images/music.png"></image>
+</view>
+<van-tabbar wx:if="{{edit}}">
+  <van-tabbar-item icon="close" wx:if="{{swiperData.length}}" bindtap="bindDelPage">删除本页</van-tabbar-item>
+  <van-tabbar-item icon="send-gift-o" wx:if="{{swiperData.length}}" bindtap="bindSettingBackground">本页背景</van-tabbar-item>
+  <van-tabbar-item icon="photo-o" bindtap="bindSelectTemplate">模板</van-tabbar-item>
+  <van-tabbar-item icon="music-o" bindtap="bindSelectMusic">音乐</van-tabbar-item>
+  <van-tabbar-item icon="setting-o" bindtap="bindOpenSetting">设置</van-tabbar-item>
+  <van-tabbar-item icon="share-o" bindtap="bindSave">保存</van-tabbar-item>
+</van-tabbar>
+<van-popup
+  show="{{templateShow}}"
+  position="bottom"
+  custom-style="height: 100%"
+>
+  <van-grid border column-num="2" gutter="{{ 10 }}">
+    <van-grid-item 
+      use-slot 
+      wx:for="{{templates}}" 
+      wx:key="index"
+      data-index="{{index}}"
+      bind:click="onClickItem">
+      <view style="width: 100%">
+        <image src="{{item.thumb}}" lazy-load/>
+        <text>{{item.text}}</text>
+      </view>
+      <van-icon name="close" size="20px" wx:if="{{item.checked}}" style="position: absolute;top: 0px;right: -10px;z-index: 9" data-index="{{index}}" catchtap="onClickRemove"></van-icon>
+    </van-grid-item>
+  </van-grid>
+  <van-divider contentPosition="center">期待更多模板</van-divider>
+  <van-button size="small" plain bind:click="onClose">关闭</van-button>
+</van-popup>
+<van-popup
+  show="{{musicShow}}"
+  position="bottom"
+  custom-style="height: 100%"
+>
+  <van-cell-group>
+    <van-cell title="{{item.name}}" wx:for="{{musics}}" wx:key="index" data-src="{{item.src}}" bind:click="onSelectMusic">
+      <van-icon name="{{item.paused === false ? 'pause-circle-o' : 'play-circle-o'}}" data-index="{{index}}" catchtap="onPlay"/>
+    </van-cell>
+  </van-cell-group>
+  <van-button size="small" plain bind:click="onCloseMusicPopup">关闭</van-button>
+</van-popup>
+<van-popup
+  show="{{configShow}}"
+  position="bottom"
+  custom-style="height: 100%"
+>
+  <van-cell-group>
+    <van-field
+      value="{{pageConfig.title}}"
+      label="相册标题"
+      input-align="right"
+      bind:change="onTitleChange"
+    />
+  </van-cell-group>
+  <van-cell-group>
+    <van-cell title="封面图" bind:click="onSetPageThumb">
+      <van-icon name="success" wx:if="{{pageConfig.thumb}}"/>
+    </van-cell>
+    <van-cell title="自动切换" data-key="autoplay" bind:click="onClickSetting">
+      <van-icon name="success" wx:if="{{pageConfig.autoplay}}"/>
+    </van-cell>
+    <van-cell title="采用衔接滑动" data-key="circular" bind:click="onClickSetting">
+      <van-icon name="success" wx:if="{{pageConfig.circular}}"/>
+    </van-cell>
+    <van-cell title="显示面板指示点" data-key="indicatorDots" bind:click="onClickSetting">
+      <van-icon name="success" wx:if="{{pageConfig.indicatorDots}}"/>
+    </van-cell>
+    <van-cell title="关闭播放音乐" data-key="playMusic" bind:click="onClickSetting">
+      <van-icon name="success" wx:if="{{!pageConfig.playMusic}}"/>
+    </van-cell>
+    <!-- <picker bindchange="bindCurrentChange" value="{{pageConfig.current}}" range="{{ranges}}">
+      <van-cell title="从哪一页开始" is-link value="{{pageConfig.current+1}}" />
+    </picker> -->
+  </van-cell-group>
+  <van-button size="small" plain bind:click="onCloseConfigPopup">关闭</van-button>
+</van-popup>
+<van-popup
+  show="{{bgShow}}"
+  position="bottom"
+  custom-style="height: 100%"
+>
+  <van-cell-group>
+    <van-cell title="背景图" bind:click="onSetPageBgImg">
+      <van-icon name="success" wx:if="{{swiperData[curIndex].useBgImg}}"/>
+    </van-cell>
+    <van-panel>
+      <van-cell title="背景色" slot="header" bind:click="onSetPageBgColor">
+        <van-icon name="success" wx:if="{{swiperData[curIndex].useBgColor}}"/>
+      </van-cell>
+      <view class="color-wrapper" wx:if="{{swiperData[curIndex].useBgColor}}">
+        <view class="color-block {{swiperData[curIndex].bgColor == item ? 'active' : ''}}" wx:for="{{colors}}" wx:key="index" data-color="{{item}}" style="background: {{item}};" bindtap="onSelectPageColor"></view>
+      </view>
+    </van-panel>
+    <van-cell title="清除背景" data-key="circular" bind:click="onClearPageBg">
+    </van-cell>
+  </van-cell-group>
+  <van-button size="small" plain bind:click="onCloseBgPopup">关闭</van-button>
+</van-popup>
+<button wx:if="{{!edit}}" class="share-btn" open-type="share" hover-class="none">
+  <image src='../../../assets/images/icon-share.png' />
+</button>
+<van-toast id="van-toast" />

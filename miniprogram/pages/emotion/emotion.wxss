@@ -1,0 +1,12 @@
+
+
+.van-grid-item__content text{
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.van-grid-item{
+  width: 50% !important;
+}

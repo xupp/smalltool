@@ -1,0 +1,69 @@
+
+.user-content{
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.user-content .user-album-list{
+  background: #fff;
+  display: flex;
+  padding: 24rpx;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+.user-content .user-album-list image{
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+.user-content .user-album-list .user-album-list-r{
+  flex: 2;
+}
+.user-content .user-album-list .user-album-list-r view{
+  padding-top: 20rpx;
+  font-size: 12px;
+}
+.user-content .user-album-list .user-album-list-r view text{
+  font-size: 1em;  
+  color: #b4b4b4;
+}
+.user-content .user-album-list .user-album-list-r view:first-child text{
+  font-weight: 700;
+  color: #000;
+}
+ .user-content .user-album-list .user-album-list-r view:nth-child(2){
+  display: flex;
+  justify-content: space-between;
+} 
+.user-content .user-album-list .user-album-list-r view:nth-child(3){
+  display: flex;
+  justify-content: space-between;
+}
+ .user-content .user-album-list .user-album-list-r view:nth-child(3) text:nth-child(3){
+  padding-left: 60rpx;
+}  
+
+.make-new{
+  color: #fff;
+  background-color: #ff6765;
+}
+
+.concat{
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  background: #ff6765;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.tip{
+  text-align: center;
+  color: #b4b4b4;
+  margin-top: 10px;
+}

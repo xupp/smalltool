@@ -1,0 +1,165 @@
+.content{
+  font-family: 微软雅黑,宋体;
+  font-size: 16px;
+  height: 100%;
+  width: 100vw;
+  color:#FFFFFF;
+  background-image: linear-gradient(to right, #74ebd5, #9face6);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  display: grid;
+  grid-template-columns: repeat(2, 45%);
+  justify-content: space-evenly;
+  row-gap: 10px;
+  padding-top: 16px;
+  padding-bottom: 30px;
+  box-sizing: border-box;
+}
+.container view text{
+  color: white;
+  font-size: 12px;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 5px;
+}
+.card::after{
+  content: '';
+  position: absolute;
+  left: 5px;
+  bottom: -3px;
+  width: calc(100% - 10px);
+  height: 3px;
+  filter: blur(2px);
+}
+.container navigator:nth-child(1) .card, .container navigator:nth-child(1) .card::after{
+  background: #1cbbb4;
+}
+.container navigator:nth-child(2) .card, .container navigator:nth-child(2) .card::after{
+  background: #8d5dca;
+}
+.container navigator:nth-child(3) .card, .container navigator:nth-child(3) .card::after{
+  background: #bb508d;
+}
+.container navigator:nth-child(4) .card, .container navigator:nth-child(4) .card::after{
+  background: #76cc81;
+}
+.container navigator:nth-child(5) .card, .container navigator:nth-child(5) .card::after{
+  background: #da7e67;
+}
+.container navigator:nth-child(6) .card, .container navigator:nth-child(6) .card::after{
+  background: #2d6592;
+}
+.container navigator:nth-child(7) .card, .container navigator:nth-child(7) .card::after{
+  background: #4ca0c7;
+}
+.container navigator:nth-child(8) .card, .container navigator:nth-child(8) .card::after{
+  background: #f37b1d;
+}
+.container navigator:nth-child(9) .card, .container navigator:nth-child(9) .card::after{
+  background: #dd5c5c;
+}
+.container navigator:nth-child(10) .card, .container navigator:nth-child(10) .card::after{
+  background: #aa7383;
+}
+.container navigator:nth-child(11) .card, .container navigator:nth-child(11) .card::after{
+  background: #c5ad41;
+}
+.card-icon{
+  width: 104rpx;
+  height: 104rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .3);
+}
+.card-icon image{
+  width: 64rpx;
+  height: 64rpx;
+}
+
+
+/* ==================
+         卡片
+ ==================== */
+
+ .cu-card {
+  height: 100%;
+	display: block;
+	overflow: hidden;
+}
+
+.cu-card>.cu-item {
+  height: 100%;
+	display: block;
+	background-color: var(--white);
+	overflow: hidden;
+	border-radius: 10rpx;
+	margin: 0 30rpx;
+}
+
+.cu-card>.cu-item.shadow-blur {
+	overflow: initial;
+}
+
+
+
+.bg-img {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+
+.cardTitle{
+  color: #fff;
+  padding: 130rpx 60rpx;
+  box-sizing: border-box;
+  font-size: 40rpx;
+  font-weight: 300;
+  transform: skew(-10deg, 0deg);
+  position: relative;
+  text-shadow: 0px 0px 6rpx rgba(0,0,0,0.3)
+}
+
+.cardTitle::before{
+  content: "";
+  position: absolute;
+  width: 60rpx;
+  height: 6rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  display: block;
+  top: 100rpx;
+  left: 50rpx;  
+  transform: skew(10deg, 0deg);
+}
+.cardTitle::after{
+  content: "";
+  position: absolute;
+  width: 140rpx;
+  border-radius: 6rpx;
+  height: 24rpx;
+  background-color: #fff;
+  display: block;
+  bottom: 100rpx;
+  left: 90rpx;  
+  transform: skew(10deg, 0deg);
+  opacity: 0.1;
+}
+
+swiper-item navigator{
+  height: 100%;
+}

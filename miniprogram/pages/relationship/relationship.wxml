@@ -1,0 +1,47 @@
+<van-field
+  label="{{reverse === 1 ? '我称呼Ta' : 'Ta称呼我'}}"
+  value="{{ text }}"
+  type="textarea"
+  autosize="{{size}}"
+  border="{{false}}"
+  label-class="label-class"
+  input-class="input-class"
+  readonly
+/>
+<van-cell center="{{true}}" wx:if="{{ships.length}}">
+  <van-tag wx:for="{{ships}}" wx:key="index" type="success" size="medium">{{item}}</van-tag>
+</van-cell>
+<view class="page-bottom">
+  <van-cell center="{{true}}">
+    <van-radio-group value="{{ sex }}"  bind:change="onSexChange">
+      <van-radio use-icon-slot value="{{ sex }}" name="{{1}}">
+        <image slot="icon" src="{{ sex === 1 ? '../../assets/images/nan_active.png' : '../../assets/images/nan.png' }}" />
+      </van-radio>
+      <van-radio use-icon-slot value="{{ sex }}" name="{{0}}">
+        <image slot="icon" src="{{ sex === 0 ? '../../assets/images/nv_active.png' : '../../assets/images/nv.png' }}" />
+      </van-radio>
+    </van-radio-group>
+  </van-cell>
+  <van-cell center="{{true}}">
+    <van-radio-group value="{{ reverse }}" bind:change="onChange">
+      <van-radio name="{{1}}" checked-color="#07c160">我称呼对方</van-radio>
+      <van-radio name="{{2}}" checked-color="#07c160">对方称呼我</van-radio>
+    </van-radio-group>
+  </van-cell>
+  <van-grid square column-num="5">
+    <van-grid-item 
+      use-slot 
+      wx:for="{{ ['爸爸', '妈妈', '老公', '老婆', '儿子', '女儿', '哥哥', '弟弟', '姐姐', '妹妹'] }}" 
+      data-text="{{item}}" 
+      wx:key="index"
+      bindtap="onClickShip">
+      <view>{{item}}</view>
+    </van-grid-item>
+  </van-grid>
+  <van-grid column-num="3">
+    <van-grid-item use-slot wx:for="{{ ['回退', '清空', '计算'] }}" wx:key="index" data-index="{{index}}" bindtap="onClickOperate">
+      <view>{{item}}</view>
+    </van-grid-item>
+  </van-grid>
+</view>
+<van-toast id="van-toast" />

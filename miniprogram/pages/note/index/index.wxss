@@ -1,0 +1,79 @@
+.container{
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.curr{
+  width: 100%;
+  align-self: start;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+.curr > view{
+  margin-left: 10px;
+}
+.curr > view > view > text{
+  color: #00c9ff;
+}
+.item{
+  display: block;
+  width: 100%;
+  height: 49px;
+  border-radius: 8px;
+  font-size: 12px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border: 1px solid #74ebd5;
+  background-color: rgba(116, 235, 213, .3);
+  overflow: hidden;
+}
+.content{
+  width: 100%;
+  height: 600rpx;
+}
+.content .item.nearby{
+  border: 1px solid red;
+  background-color: rgba(255, 0, 0, .3);
+}
+.content .item.expires{
+  border: 1px solid #666666;
+  background-color: rgb(142, 142, 142, .3);
+}
+.item text{
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 3px;
+}
+.tag{
+  display: flex;
+  margin: 20px 0;
+}
+van-tag{
+  margin-right: 5px;
+}
+van-button{
+  width: 100%;
+}
+.van-swipe-cell, .van-swipe-cell > view{
+  height: 100%;
+}
+.swipe-left{
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6px;
+  box-sizing: border-box;
+}
+.van-swipe-cell__right{
+  width: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: red;color:#fff;
+}

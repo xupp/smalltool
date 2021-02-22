@@ -1,0 +1,23 @@
+van-button{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.van-button, button{
+  border-radius: 0 !important;
+}
+.content-class{
+  border: 1px solid red;
+}
+scroll-view{
+  width: 100%;
+  height: calc(100vh - 110px);
+}
+van-grid-item image{
+  width: 100%;
+  height: 90px;
+}
+van-grid-item image.active{
+  border: 1px solid red;
+}

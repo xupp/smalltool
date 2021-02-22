@@ -1,0 +1,28 @@
+<swiper 
+  vertical 
+  indicator-dots="{{pageConfig.indicatorDots}}"
+  autoplay="{{pageConfig.autoplay}}" 
+  circular="{{pageConfig.circular}}" 
+  current="{{pageConfig.current}}" 
+  indicator-color="#dbdbdb" 
+  indicator-active-color="#eb865e" 
+  bindchange="change">
+  <block wx:for="{{swiperData}}" wx:for-item="swiperItem" wx:for-index="pageIndex" wx:key="pageIndex">
+    <swiper-item>
+      <view class="page-container">
+        <view class="page-bg" style="background-color:{{swiperItem.useBgColor && swiperItem.bgColor ? swiperItem.bgColor : '#fff'}}">
+          <view class="page-bg-image" wx:if="{{swiperItem.useBgImg && swiperItem.bgImg}}" style="background-image:url({{swiperItem.bgImg}})"></view>
+        </view>
+        <view class="page-content">
+          <block wx:for="{{swiperItem.list}}" wx:for-index="componentIndex" wx:key="componentIndex">
+            <view style="{{item.elementStyle}}" class="element-animated">
+              <view class="animated" style="{{item.animatedStyle}}" data-pageindex="{{pageIndex}}" data-componentindex="{{componentIndex}}" catchtap="chooseImg"> <!-- catchtap="{{item.bindTap ? item.bindTap : ''}}" -->
+                <image src="{{item.imageSrc}}" style="{{item.imgStyle}}" mode='aspectFit'></image>
+              </view>
+            </view>
+          </block>  
+        </view>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>

@@ -1,0 +1,19 @@
+<view class="container">
+  <view style="width: 100%;height: 100%;overflow: hidden">
+    <van-grid column-num="{{columnNum}}" square border="{{ false }}">
+      <van-grid-item class="{{columnNum==2 && 'four'}}" use-slot wx:for="{{ img_streams }}" wx:key="index">
+        <image src="data:image/png;base64,{{item}}" bindlongpress="saveImage"></image>
+      </van-grid-item>
+    </van-grid>
+  </view>
+  <van-radio-group value="{{ radio }}" bind:change="onChange">
+    <van-radio name="{{9}}" checked-color="#07c160">九张</van-radio>
+    <van-radio name="{{4}}" checked-color="#07c160">四张</van-radio>
+  </van-radio-group>
+  <view class="btn-wrapper">
+    <van-button type="primary" color="#eb865e" bindtap="onClickChooseImage">选择图片</van-button>
+    <van-button type="primary" bindtap="onExportImage">导出图片</van-button>
+  </view>
+</view>
+
+<van-toast id="van-toast" />

@@ -1,0 +1,21 @@
+<!-- <view class="screen">
+  {{screen_text}}
+</view> -->
+<van-field
+  value="{{ screen_text }}"
+  border="{{ false }}"
+  type="textarea"
+  readonly
+  autosize="{{size}}"
+  input-align="right"
+  input-class="input-class"
+/>
+<view class="container">
+  <view 
+    wx:for="{{btns}}" 
+    wx:key="index" 
+    class="{{item.text === '0' ? 'zero' : ''}}" 
+    data-index="{{index}}" 
+    bindtap="click"
+  >{{item.text}}</view>
+</view>

@@ -1,0 +1,9 @@
+<view class="van-container">
+    <view class="van-sidebar custom-class">
+      <slot />
+    </view>
+
+  <view class="van-content">
+    <slot name="content"/>
+  </view>
+</view>

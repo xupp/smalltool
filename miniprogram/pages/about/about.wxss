@@ -1,0 +1,57 @@
+.container{
+  font-family : 微软雅黑,宋体;
+  font-size: 14px;
+  background-size:cover;  
+  height: 200px;
+  width:100vw;
+  color: var(--theme-color);
+  margin-bottom: 10px;
+  background: whitesmoke;
+  text-shadow: 1px 1px 5px #333;
+  position: relative;
+}
+.container image.background{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.container .content{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content .logo{
+  width: 80px;
+  height: 80px;
+  border: 2px solid var(--theme-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.logo image{
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+button{
+  border: none;
+  text-align: left;
+  padding: 0;
+  font-size: 14px;
+  background: transparent;
+}
+button::after{
+  border: none;
+}
+van-cell van-icon{
+  margin-right: 5px;
+}

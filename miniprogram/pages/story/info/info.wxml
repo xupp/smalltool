@@ -1,0 +1,49 @@
+<swiper autoplay circular indicator-dots indicator-color="#dbdbdb" indicator-active-color="#eb865e">
+  <swiper-item wx:for="{{_image_urls}}" wx:key="index">
+    <image src="{{domain + '/static/story/images/' + category + '/' + item}}" />
+  </swiper-item>
+</swiper>
+<view class="audio-wrapper">
+  <view class="audio-play-pause">
+    <van-icon name="{{isplay ? 'pause-circle-o' : 'play-circle-o'}}" bindtap="onPlay"/>
+  </view>
+  <view class="audio-duration">{{util.formatSeconds(currentTime)}}<text>/</text>{{util.formatSeconds(duration)}}</view>
+  <van-slider value="{{ currentValue }}" active-color="#000000" bar-height="5px" use-button-slot bind:drag="onDrag">
+    <view class="custom-button" slot="button">
+      <van-icon name="underway-o" size="12px"/>
+    </view>
+  </van-slider>
+</view>
+<wxs module="util">
+  function formatSeconds(value) {
+  var theTime = parseInt(value);// 秒
+  var theTime1 = 0;// 分
+  var theTime2 = 0;// 小时
+  if (theTime > 60) {
+      theTime1 = parseInt(theTime / 60);
+      theTime = parseInt(theTime % 60);
+      if (theTime1 > 60) {
+          theTime2 = parseInt(theTime1 / 60);
+          theTime1 = parseInt(theTime1 % 60);
+      }
+  }
+
+  var result = "" + parseInt(theTime);//秒
+  if (10 > theTime > 0) {
+      result = "0" + parseInt(theTime);//秒
+  } else {
+      result = "" + parseInt(theTime);//秒
+  }
+
+  if (10 > theTime1 > 0) {
+      result = "0" + parseInt(theTime1) + ":" + result;//分，不足两位数，首位补充0，
+  } else {
+      result = "" + parseInt(theTime1) + ":" + result;//分
+  }
+  if (theTime2 > 0) {
+      result = "" + parseInt(theTime2) + ":" + result;//时
+  }
+  return result;
+}
+module.exports.formatSeconds = formatSeconds;
+</wxs>

@@ -1,0 +1,17 @@
+<view class="user-content">
+  <block wx:for="{{albums}}" wx:key="index">
+    <view class="user-album-list">
+      <image src="{{item._pageConfig.thumb}}" style="background-color:#eee"></image>
+      <view class="user-album-list-r"> 
+        <view><text>{{item._pageConfig.title}}</text></view>
+        <view><text>浏览量：{{item._pageConfig.view}}</text><text>分享次数：{{item._pageConfig.share}}</text></view>
+        <view>
+          <text data-index="{{index}}" data-id="{{item.id}}" bindtap="del">删除</text>
+          <text data-item="{{item}}" bindtap="edit">编辑</text>
+          <text data-item="{{item}}" bindtap="open">打开</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <button bindtap="create" class="make-new">制作相册</button>
+  </view>

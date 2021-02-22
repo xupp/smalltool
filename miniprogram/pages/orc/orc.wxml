@@ -1,0 +1,159 @@
+<van-tabs sticky ellipsis="{{false}}">
+  <van-tab title="文字识别">
+    <view class="container">
+      <template is="image" data="{{...normal_data}}"></template>
+      <van-button data-type="normal" bindtap="onChooseImage" type="primary" color="#eb865e" block>选择图片</van-button>
+      <van-button bindtap="onEditImageUrl" type="primary" block>网络图片</van-button>
+      <scroll-view scroll-y class="content" hidden="{{!normal_words_result.length}}">
+        <van-cell-group>
+          <van-cell wx:for="{{normal_words_result}}" wx:key="index" title="{{item.words}}" />
+        </van-cell-group>
+      </scroll-view>
+    </view>
+  </van-tab>
+  <van-tab title="身份证识别">
+    <view class="container">
+      <template is="image" data="{{...idcard_data}}"></template>
+      <van-radio-group value="{{idcard_direction}}" bind:change="onChange">
+        <van-radio name="front" checked-color="#07c160">正面</van-radio>
+        <van-radio name="back" checked-color="#07c160">反面</van-radio>
+      </van-radio-group>
+      <van-button data-type="idcard" bindtap="onChooseImage" type="primary" color="#eb865e" block>选择身份证图片</van-button>
+      <scroll-view scroll-y class="content" hidden="{{!idcard_words_result}}">
+        <van-cell-group>
+          <van-cell wx:for="{{idcard_words_result}}" wx:key="key" wx:for-index="key" wx:for-item="item" title="{{key}}" value="{{item.words}}" title-width="100px"/>
+        </van-cell-group>
+      </scroll-view>
+    </view>
+  </van-tab>
+  <van-tab title="银行卡识别">
+    <view class="container">
+      <template is="image" data="{{...bankcard_data}}"></template>
+      <van-button data-type="bankcard" bindtap="onChooseImage" type="primary" color="#eb865e" block>选择银行卡图片</van-button>
+      <scroll-view scroll-y class="content" hidden="{{!bankcard_words_result}}">
+        <van-cell-group>
+          <van-cell title="银行卡卡号" value="{{bankcard_words_result.bank_card_number}}" title-width="100px"/>
+          <van-cell title="银行名" value="{{bankcard_words_result.bank_name}}" title-width="100px"/>
+          <van-cell title="银行卡类型" value="{{util.bank_card_type(bankcard_words_result.bank_card_type)}}" title-width="100px"/>
+        </van-cell-group>
+      </scroll-view>
+    </view>
+  </van-tab>
+  <van-tab title="驾驶证识别">
+    <view class="container">
+      <template is="image" data="{{...drivingLicense_data}}"></template>
+      <van-button data-type="drivingLicense" bindtap="onChooseImage" type="primary" color="#eb865e" block>选择驾驶证图片</van-button>
+      <scroll-view scroll-y class="content" hidden="{{!drivingLicense_words_result}}">
+        <van-cell-group>
+          <van-cell wx:for="{{drivingLicense_words_result}}" wx:key="key" wx:for-index="key" wx:for-item="item" title="{{key}}" value="{{item.words}}" title-width="100px"/>
+        </van-cell-group>
+      </scroll-view>
+    </view>
+  </van-tab>
+  <van-tab title="行驶证识别">
+    <view class="container">
+      <template is="image" data="{{...vehicleLicense_data}}"></template>
+      <van-button data-type="vehicleLicense" bindtap="onChooseImage" type="primary" color="#eb865e" block>选择行驶证图片</van-button>
+      <scroll-view scroll-y class="content" hidden="{{!vehicleLicense_words_result}}">
+        <van-cell-group>
+          <van-cell wx:for="{{vehicleLicense_words_result}}" wx:key="key" wx:for-index="key" wx:for-item="item" title="{{key}}" value="{{item.words}}" title-width="100px"/>
+        </van-cell-group>
+      </scroll-view>
+    </view>
+  </van-tab>
+  <van-tab title="车牌识别">
+    <view class="container">
+      <template is="image" data="{{...licensePlate_data}}"></template>
+      <van-button data-type="licensePlate" bindtap="onChooseImage" type="primary" color="#eb865e" block>选择车牌图片</van-button>
+      <scroll-view scroll-y class="content" hidden="{{!licensePlate_words_result}}">
+        <van-cell-group>
+          <van-cell title="车牌颜色" value="{{util.license_plate_color(licensePlate_words_result.color)}}" title-width="100px"/>
+          <van-cell title="车牌号码" value="{{licensePlate_words_result.number}}" title-width="100px"/>
+        </van-cell-group>
+      </scroll-view>
+    </view>
+  </van-tab>
+  <van-tab title="营业执照识别">
+    <view class="container">
+      <template is="image" data="{{...businessLicense_data}}"></template>
+      <van-button data-type="businessLicense" bindtap="onChooseImage" type="primary" color="#eb865e" block>选择营业执照图片</van-button>
+      <scroll-view scroll-y class="content" hidden="{{!businessLicense_words_result}}">
+        <van-cell-group>
+          <van-cell wx:for="{{businessLicense_words_result}}" wx:key="key" wx:for-index="key" wx:for-item="item" title="{{key}}" value="{{item.words}}" title-width="100px"/>
+        </van-cell-group>
+      </scroll-view>
+    </view>
+  </van-tab>
+</van-tabs>
+<van-dialog
+  use-slot
+  title="请输入网络图片地址"
+  show="{{dialogShow}}"
+  show-cancel-button
+  data-type="net"
+  bind:confirm="bindTapConfirm"
+>
+  <van-cell-group>
+    <van-field
+      model:value="{{imageUrl}}"
+      type="textarea"
+      autosize
+      border="{{ false }}"
+    />
+  </van-cell-group>
+</van-dialog>
+<van-toast id="van-toast" />
+<template name="image">
+  <view class="image-wrapper">
+    <van-icon name="photo-o" size="50" color="#8e8e8e" wx:if="{{!img_stream}}"/>
+    <image src="{{util.is_net_image(img_stream)}}" mode="aspectFit" wx:if="{{img_stream}}"></image>
+  </view>
+</template>
+<wxs module="util">
+  function bank_card_type(type) {
+    var text = ''
+    switch(type) {
+      case 0:
+        text = '不能识别'
+        break
+      case 1:
+        text = '借记卡'
+        break
+      case 2:
+        text = '信用卡'
+        break
+    }
+    return text
+  }
+  function license_plate_color(color) {
+    var text = ''
+    switch(color) {
+      case 'blue':
+        text = '蓝色'
+        break
+      case 'white':
+        text = '白色'
+        break
+      case 'black':
+        text = '黑色'
+        break
+      case 'yellow':
+        text = '黄色'
+        break
+    }
+    return text
+  }
+  function is_net_image(str) {
+    var reg = getRegExp('^https?://.*')
+    if (reg.test(str)) {
+      return str
+    } else {
+      return 'data:image/png;base64,' + str
+    }
+  }
+  module.exports = {
+    bank_card_type: bank_card_type,
+    license_plate_color: license_plate_color,
+    is_net_image: is_net_image
+  }
+</wxs>

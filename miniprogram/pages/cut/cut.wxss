@@ -1,0 +1,33 @@
+.container{
+  padding: 16px;
+  box-sizing: border-box;
+}
+.van-radio{
+  margin-top: 60rpx;
+  margin-right: 30px;
+  display: inline-flex !important;
+}
+.van-radio__label{
+  margin-left: 5px !important;
+}
+.van-grid{
+  border-left: 1px solid #999999;
+}
+.van-grid .van-grid-item{
+  border-right: 1px solid #999999;
+  border-bottom: 1px solid #999999;
+}
+.van-grid van-grid-item:nth-child(-n+3) .van-grid-item{
+  border-top: 1px solid #999999;
+}
+.van-grid van-grid-item.four:nth-child(3) .van-grid-item{
+  border-top: none;
+}
+.van-grid-item image{
+  width: 90%;
+}
+.btn-wrapper {
+  margin-top: 120rpx;
+  display: flex;
+  justify-content: space-evenly;
+}

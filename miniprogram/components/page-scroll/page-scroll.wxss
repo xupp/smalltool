@@ -1,0 +1,29 @@
+.page-container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.page-bg{
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden; 
+  position: absolute; 
+  z-index: -1;
+}
+.page-bg .page-bg-image{
+  width:100%;
+  height:100%;
+  background-size: cover;
+}
+.page-content{
+  position: absolute;
+  top: 0;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.element-animated{
+  position: absolute;
+}

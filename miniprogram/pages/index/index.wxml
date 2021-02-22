@@ -1,0 +1,100 @@
+<swiper autoplay circular indicator-dots indicator-color="#dbdbdb" indicator-active-color="#eb865e">
+  <swiper-item wx:for="{{list}}" wx:key="index">
+    <navigator url="{{item.url}}" open-type="navigate">
+      <view class="cu-card">
+        <view class="cu-item bg-img shadow-blur" style="background-image:url({{item.img}})">
+          <view class="cardTitle">
+            {{item.title}}
+          </view>
+        </view>
+      </view>
+    </navigator>
+  </swiper-item>
+</swiper>
+<view class="container">
+  <navigator url="../emoji/index/index" open-type="navigate">
+    <view class="card">
+      <view class="card-icon">
+        <image src="../../assets/images/emoji.png" ></image>
+      </view>
+      <text>DIY表情</text>
+    </view>
+  </navigator>
+  <navigator url="../album/index/index" open-type="navigate">
+    <view class="card">
+      <view class="card-icon">
+        <image src="../../assets/images/album.png" ></image>
+      </view>
+      <text>相册集</text>
+    </view>
+  </navigator>
+  <navigator url="../orc/orc" open-type="navigate">
+    <view class="card">
+      <view class="card-icon">
+        <image src="../../assets/images/orc.png" ></image>
+      </view>
+      <text>图文识别</text>
+    </view>
+  </navigator>
+  <navigator url="../calculator/calculator" open-type="navigate">
+    <view class="card">
+      <view class="card-icon">
+        <image src="../../assets/images/cal.png" ></image>
+      </view>
+      <text>计算器</text>
+    </view>
+  </navigator>
+  <navigator url="../qrcode/qrcode" open-type="navigate">
+    <view class="card">
+      <view class="card-icon">
+        <image src="../../assets/images/qrcode.png" ></image>
+      </view>
+      <text>二维码</text>
+    </view>
+  </navigator>
+  <navigator url="../emotion/emotion" open-type="navigate">
+    <view class="card">
+      <view class="card-icon">
+        <image src="../../assets/images/emotion.png" ></image>
+      </view>
+      <text>表情包</text>
+    </view>
+  </navigator>
+  <navigator url="../cut/cut" open-type="navigate">
+    <view class="card">
+      <view class="card-icon">
+        <image src="../../assets/images/cut.png" ></image>
+      </view>
+      <text>切图</text>
+    </view>
+  </navigator>
+  <navigator url="../relationship/relationship" open-type="navigate">
+    <view class="card">
+      <view class="card-icon">
+        <image src="../../assets/images/relationship.png" ></image>
+      </view>
+      <text>亲戚关系</text>
+    </view>
+  </navigator>
+  <navigator url="../note/index/index" open-type="navigate">
+    <view class="card">
+      <view class="card-icon">
+        <image src="../../assets/images/note.png" ></image>
+      </view>
+      <text>记个事</text>
+    </view>
+  </navigator>
+  <navigator url="../story/index/index" open-type="navigate">
+    <view class="card">
+      <view class="card-icon">
+        <image src="../../assets/images/story.png" ></image>
+      </view>
+      <text>童话故事</text>
+    </view>
+  </navigator>
+  <navigator>
+    <view class="card">
+      <image src="../../assets/images/more.png" style="width: 64rpx;height: 64rpx"></image>
+    </view>
+  </navigator>
+</view>

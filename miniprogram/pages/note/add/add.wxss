@@ -1,0 +1,7 @@
+.btn-box{
+  padding: 60px 30px;
+  box-sizing: border-box;
+}
+button{
+  margin-bottom: 10px;
+}

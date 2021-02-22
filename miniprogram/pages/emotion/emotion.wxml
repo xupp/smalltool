@@ -1,0 +1,23 @@
+<van-tabs swipeable sticky bind:change="onTabChange">
+  <van-tab 
+    wx:for="{{all_images}}" 
+    title="{{key}}"
+    wx:for-item="images" 
+    wx:for-index="key" 
+    wx:key="key">
+    <van-grid border column-num="2" gutter="{{10}}" content-class="content-class">
+      <van-grid-item 
+        use-slot
+        wx:for="{{images}}"
+        wx:key="index"
+        data-item="{{item}}"
+        bindtap="onClickItem">
+        <view style="width: 100%">
+          <image style="width: 100%; height: 90px;" src="{{domain + '/static/emoji/' + item.main_img}}" lazy-load/>
+          <text>[{{item._image_urls.length}}张]{{item.title}}</text>
+        </view>
+    
+      </van-grid-item>
+    </van-grid>
+  </van-tab>
+</van-tabs>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "c-canvas-drag": "../../../libs/wxa-comp-canvas-drag/canvas-drag/index"
+  },
+  "navigationBarTitleText": "DIY表情"
+}

@@ -1,0 +1,25 @@
+<van-tabs active="{{tab_active}}" bind:change="onTabChange">
+  <van-tab wx:for="{{tabs}}" wx:key="index" title="{{item.name}}" name="{{item.name}}">
+    <van-sidebar active-key="{{ sub_tab_active }}" bind:change="onSubTabChange">
+      <scroll-view scroll-y="{{true}}">
+        <van-sidebar-item wx:for="{{item.sub_tabs}}" wx:for-item="v" wx:key="index" title="{{v}}" />
+      </scroll-view>
+      <scroll-view slot="content" scroll-y="{{true}}">
+        <van-grid border column-num="2" gutter="{{ 10 }}">
+          <van-grid-item 
+            use-slot 
+            wx:for="{{materials}}" 
+            wx:key="index" 
+            data-index="{{index}}"
+            data-path="{{item.path}}"
+            bind:click="onClickItem">
+            <image src="{{domain + item.path}}"></image>
+            <van-icon name="close" size="20px" wx:if="{{item.num}}" style="position: absolute;top:0;right: -5px" data-index="{{index}}" data-path="{{item.path}}" catchtap="onClickRemove"></van-icon>
+            <van-tag type="danger" wx:if="{{item.num}}" style="position: absolute;bottom:0;right: 5px">{{item.num}}</van-tag>
+          </van-grid-item>
+        </van-grid>
+      </scroll-view>
+    </van-sidebar>
+  </van-tab>
+</van-tabs> 
+<van-button block type="primary" bind:click="onClickSave">确定</van-button>

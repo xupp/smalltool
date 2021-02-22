@@ -1,0 +1,4 @@
+@import '../common/index.wxss';
+.van-sidebar{width:85px;width:var(--sidebar-width,85px)}
+.van-container{display: flex;justify-content:space-between}
+.van-content{padding: 10px 16px;box-sizing: border-box;flex:1}

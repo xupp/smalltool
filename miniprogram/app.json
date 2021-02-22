@@ -1,0 +1,100 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/about/about",
+    "pages/calculator/calculator",
+    "pages/qrcode/qrcode",
+    "pages/subway/index/index",
+    "pages/subway/city/city",
+    "pages/subway/station/station",
+    "pages/subway/info/info",
+    "pages/subway/site/site",
+    "pages/cut/cut",
+    "pages/relationship/relationship",
+    "pages/emoji/index/index",
+    "pages/emoji/material/material",
+    "pages/emotion/emotion",
+    "pages/note/index/index",
+    "pages/note/add/add",
+    "pages/story/index/index",
+    "pages/story/info/info",
+    "pages/orc/orc",
+    "pages/album/index/index",
+    "pages/album/add/add"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "有用小帮手",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#dbdbdb",
+    "selectedColor": "#eb865e",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/images/home.png",
+        "selectedIconPath": "assets/images/home_active.png"
+      },
+      {
+        "pagePath": "pages/subway/index/index",
+        "text": "查地铁",
+        "iconPath": "assets/images/ditie.png",
+        "selectedIconPath": "assets/images/ditie_active.png"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "text": "关于",
+        "iconPath": "assets/images/about.png",
+        "selectedIconPath": "assets/images/about_active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  },
+  "plugins": {
+  },
+  "cloud": true,
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
+  },
+  "usingComponents": {
+    "van-search": "./libs/@vant/weapp/search/index",
+    "van-overlay": "./libs/@vant/weapp/overlay/index",
+    "van-loading": "./libs/@vant/weapp/loading/index",
+    "van-cell": "./libs/@vant/weapp/cell/index",
+    "van-tag": "./libs/@vant/weapp/tag/index",
+    "van-tab": "./libs/@vant/weapp/tab/index",
+    "van-tabs": "./libs/@vant/weapp/tabs/index",
+    "van-steps": "./libs/@vant/weapp/steps/index",
+    "van-divider": "./libs/@vant/weapp/divider/index",
+    "van-toast": "./libs/@vant/weapp/toast/index",
+    "van-icon": "./libs/@vant/weapp/icon/index",
+    "van-button": "./libs/@vant/weapp/button/index",
+    "van-grid": "./libs/@vant/weapp/grid/index",
+    "van-grid-item": "./libs/@vant/weapp/grid-item/index",
+    "van-radio": "./libs/@vant/weapp/radio/index",
+    "van-radio-group": "./libs/@vant/weapp/radio-group/index",
+    "van-field": "./libs/@vant/weapp/field/index",
+    "van-notice-bar": "./libs/@vant/weapp/notice-bar/index",
+    "van-action-sheet": "./libs/@vant/weapp/action-sheet/index",
+    "van-sidebar": "./libs/@vant/weapp/sidebar/index",
+    "van-sidebar-item": "./libs/@vant/weapp/sidebar-item/index",
+    "van-circle": "./libs/@vant/weapp/circle/index",
+    "van-tabbar": "./libs/@vant/weapp/tabbar/index",
+    "van-tabbar-item": "./libs/@vant/weapp/tabbar-item/index",
+    "van-image": "./libs/@vant/weapp/image/index",
+    "van-slider": "./libs/@vant/weapp/slider/index",
+    "van-dialog": "./libs/@vant/weapp/dialog/index",
+    "van-popup": "./libs/@vant/weapp/popup/index",
+    "van-swipe-cell": "./libs/@vant/weapp/swipe-cell/index",
+    "van-panel": "./libs/@vant/weapp/panel/index",
+    "van-sticky": "./libs/@vant/weapp/sticky/index"
+  }
+}

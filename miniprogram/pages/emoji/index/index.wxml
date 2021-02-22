@@ -1,0 +1,85 @@
+<view style="margin-top: 10px" bindtap="onClose">
+  <c-canvas-drag id="canvas-drag" graph="{{graph}}" enableUndo="{{true}}" width="700" height="720"></c-canvas-drag>
+</view>
+<van-tabbar>
+  <van-tabbar-item icon="photo-o" id="image-item" bindtap="onClickImage">图片</van-tabbar-item>
+  <van-tabbar-item icon="edit" id="text-item" bindtap="onClickText">文字</van-tabbar-item>
+  <van-tabbar-item icon="send-gift-o" id="background-item" bindtap="onClickBackground">背景</van-tabbar-item>
+  <van-tabbar-item icon="replay" bindtap="onUndo">回退</van-tabbar-item>
+  <van-tabbar-item icon="brush-o" bindtap="onClearCanvas">清空</van-tabbar-item>
+  <van-tabbar-item icon="eye-o" bindtap="onCreate">预览</van-tabbar-item>
+</van-tabbar>
+<van-popup
+  show="{{imgShow}}"
+  closeable
+  overlay="{{false}}"
+  position="bottom"
+  bind:close="onClose"
+  custom-style="height: 28%"
+>
+  <view style="margin-top: 30px;height: 65%;overflow-y: auto">
+    <van-cell-group>
+      <van-cell title="上传图片" bind:click="onClickCustomImage"></van-cell>
+      <van-cell title="选择素材" bind:click="onClickMaterial"></van-cell>
+    </van-cell-group>
+  </view>
+</van-popup>
+<van-popup
+  show="{{textShow}}"
+  closeable
+  overlay="{{false}}"
+  position="bottom"
+  bind:close="onClose"
+  custom-style="height: 35%"
+>
+  <view style="margin-top: 30px;height: 65%;overflow-y: auto">
+    <van-cell-group>
+      <van-panel>
+        <van-cell title="添加文字" slot="header"></van-cell>
+        <van-field
+          model:value="{{ text }}"
+          type="textarea"
+          placeholder="请输入文字..."
+          maxlength="{{20}}"
+          autosize="{{size}}"
+          clearable
+          show-word-limit
+          use-button-slot
+          input-class="input-class"
+          bind:confirm="onClickConfirm"
+        >
+          <van-button slot="button" size="small" type="primary" catchtap="onClickConfirm">确定</van-button>
+        </van-field>
+      </van-panel>
+      <van-panel>
+        <van-cell title="文字颜色" slot="header"></van-cell>
+        <view class="color-wrapper">
+          <view class="color-block" wx:for="{{colors}}" wx:key="index" data-color="{{item}}" style="background: {{item}};" bindtap="onSelectColor"></view>
+        </view>
+      </van-panel>
+    </van-cell-group>
+  </view>
+</van-popup>
+<van-popup
+  show="{{bgShow}}"
+  closeable
+  overlay="{{false}}"
+  position="bottom"
+  bind:close="onClose"
+  custom-style="height: 35%"
+>
+  <view style="margin-top: 30px;height: 65%;overflow-y: auto">
+    <van-cell-group>
+      <van-cell title="背景图" bind:click="onClickBgImage"></van-cell>
+      <van-panel>
+        <van-cell title="背景色" slot="header"></van-cell>
+        <view class="color-wrapper">
+          <view class="color-block" wx:for="{{colors}}" wx:key="index" data-color="{{item}}" style="background: {{item}};" bindtap="onSelectColor"></view>
+        </view>
+      </van-panel>
+      <van-cell title="清除背景" bind:click="onClearBg">
+      </van-cell>
+    </van-cell-group>
+  </view>
+</van-popup>
+<van-toast id="van-toast" />

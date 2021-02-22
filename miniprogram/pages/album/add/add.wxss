@@ -1,0 +1,68 @@
+
+swiper, swiper-item{
+  height: 100vh;
+}
+van-grid-item image{
+  width: 100%;
+  height: 90px;
+}
+van-grid-item image.active{
+  border: 1px solid red;
+}
+van-popup van-button{
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, -5px);
+}
+van-popup .van-button, van-popup button{
+  border-radius: 0 !important;
+}
+.music-icon{
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+.music-icon.play{
+  animation: image-rotate 2s linear infinite;
+  transform-origin: center center;
+}
+.music-icon image{
+  width: 32px;
+  height: 32px;
+}
+@keyframes image-rotate{
+  from{
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+.van-grid-item__content text{
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+.color-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.color-block{
+  width: 20px;
+  height: 20px;
+  border: solid 1px #d0d0d0;
+}
+.color-block.active{
+  border: solid 3px #181717;
+}

@@ -1,0 +1,30 @@
+<van-cell-group>
+  <van-field
+    required
+    model:value="{{title}}"
+    label="名称"
+    input-align="right"
+    error-message="{{errorMsg}}"
+    bind:input="onInput"
+  />
+</van-cell-group>
+<van-cell-group>
+  <picker bindchange="bindCategoryChange" value="{{categoryIndex}}" range="{{categorys}}">
+    <van-cell title="分类" is-link value="{{category}}" />
+  </picker>
+</van-cell-group>
+<van-cell-group>
+  <picker mode="date" value="{{curDate}}" bindchange="bindDateChange">
+    <van-cell title="日期" is-link value="{{curDate}}" />
+  </picker>
+</van-cell-group>
+<van-cell-group>
+  <picker bindchange="bindPickerChange" value="{{loopIndex}}" range="{{loops}}" range-key="name">
+    <van-cell title="循环" is-link value="{{loop.name}}" />
+  </picker>
+</van-cell-group>
+<view class="btn-box">
+  <van-button bindtap="onFinish" type="primary" size="large">完成</van-button>
+  <van-button bindtap="onCancel" type="default" size="large">取消</van-button>
+  <van-button wx:if="{{edit}}" bindtap="onDelete" type="danger" size="large">删除</van-button>
+</view>

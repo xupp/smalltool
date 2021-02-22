@@ -1,0 +1,38 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.top{
+  width: 700rpx;
+  height: 100px;
+  margin: 5px auto;
+}
+.btn-wrapper {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.slot-button{
+  width: 20px;
+  height: 20px;
+  background-image: linear-gradient(to right, #fa709a, #fee140);
+}
+.color-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.color-block{
+  width: 20px;
+  height: 20px;
+  border: solid 1px #d0d0d0;
+}
+.input-class{
+  min-width: 120px;
+}
+.van-popup__close-icon{
+  top: 7px !important;
+  right: 7px !important;
+}

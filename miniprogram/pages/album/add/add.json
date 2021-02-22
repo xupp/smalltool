@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "c-page-scroll": "../../../components/page-scroll/page-scroll"
+  },
+  "navigationBarTitleText": "相册集"
+}

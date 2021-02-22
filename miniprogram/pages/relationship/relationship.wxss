@@ -1,0 +1,38 @@
+image[role="img"]{
+  width: 64rpx;
+  height: 64rpx;
+}
+.container{
+  padding: 16px;
+  box-sizing: border-box;
+}
+.van-radio{
+  margin-top: 6px;
+  margin-left: 10px;
+  display: inline-flex !important;
+}
+.van-grid-item__content{
+  color: #ffffff;
+  background: rgb(240, 145, 20) !important;
+}
+.page-bottom{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+}
+.page-bottom van-grid:last-child van-grid-item:last-child .van-grid-item__content{
+  background: #07c160 !important;
+}
+van-tag{
+  margin-right: 10px;
+}
+.input-class{
+  padding: 5px 10px !important;
+  border: 1px solid #eeeeee !important;
+  border-radius: 4px !important;
+}
+.label-class{
+  max-width: 4.2em !important;
+  min-width: 4.2em !important;
+}

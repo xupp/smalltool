@@ -1,0 +1,74 @@
+<view style="width: 80vw;margin: 10px auto;">
+  <van-button bindtap="createQrcode" type="warning" block>生成二维码</van-button>
+  <van-button bindtap="createWifiQrcode" type="info" block>生成WIFI二维码</van-button>
+  <van-button bindtap="decodeQrcode" type="primary" block>识别二维码</van-button>
+</view>
+<van-dialog
+  use-slot
+  title="生成二维码"
+  show="{{dialogShow}}"
+  show-cancel-button
+  bind:confirm="tapDialogButton"
+>
+  <view class="dialog-content">
+    <textarea bindinput="onInputChange" value="{{textareaVal}}" auto-height placeholder="请输入网址链接或者字符串"/>
+    <checkbox-group bindchange="onCheckboxChange">
+      <checkbox value="1" checked="{{checkboxVal}}"/>生成带图片的二维码
+    </checkbox-group>
+    <radio-group wx:if="{{radioShow}}" bindchange="onRadioChange">
+      <label class="radio">
+        <radio value="1" checked="true"/>彩色
+      </label>
+      <label class="radio">
+        <radio value="0" />黑白
+      </label>
+    </radio-group>
+  </view>
+</van-dialog>
+<van-dialog
+  use-slot
+  title="生成WIFI二维码"
+  show="{{wifiDialogShow}}"
+  show-cancel-button
+  bind:confirm="tapWifiDialogButton"
+>
+  <van-cell-group>
+    <van-field
+      required
+      clearable
+      value="{{ssid}}"
+      label="wifi名字"
+      placeholder="请输入wifi名字"
+      bind:change="onChangeSSID"
+    />
+
+    <van-field
+      value="{{password}}"
+      type="password"
+      label="wifi密码"
+      placeholder="请输入wifi密码"
+      border="{{ false }}"
+      bind:change="onChangePWD"
+    />
+  </van-cell-group>
+</van-dialog>
+<van-notice-bar
+  wx:if="{{wifi_qrcode}}"
+  wrapable
+  scrollable="{{ false }}"
+  text="使用手机扫描时，可以通过相机、浏览器(推荐) 等扫描工具进行扫描。使用支付宝、微信、QQ 等某些工具进行扫描时，不能进行自动连接操作，但可以复制展示的密码。"
+/>
+<view class="result-container">
+  <view wx:if="{{img_stream}}">
+    <image src="data:image/png;base64,{{img_stream}}" bindlongpress="saveImage"></image>
+    <van-button type="primary" block size="normal" bindtap="saveImage">保存图片</van-button>
+  </view>
+  <view wx:if="{{decode_text}}">
+    <view class="decode_text">
+      <text bindlongpress="saveText">{{decode_text}}</text>
+    </view>
+    <van-button type="primary" block size="normal" bindtap="saveText">复制文本</van-button>
+  </view>
+</view>
+
+<van-toast id="van-toast" />

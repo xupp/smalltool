@@ -1,0 +1,14 @@
+<van-grid border column-num="2" gutter="{{10}}" content-class="content-class">
+  <van-grid-item 
+    use-slot
+    wx:for="{{stories}}"
+    wx:key="index"
+    data-item="{{item}}"
+    bindtap="onClickItem">
+    <view style="width: 100%">
+      <image style="width: 100%; height: 90px;" src="{{domain + '/static/story/images/' + item.category + '/' + item.main_img}}" lazy-load/>
+      <text>{{item.title}}</text>
+    </view>
+  </van-grid-item>
+</van-grid>
+<van-divider wx:if="{{stories}}" contentPosition="center">到底了</van-divider>
